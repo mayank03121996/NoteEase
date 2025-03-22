@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes List</title>
+</head>
+<body>
+    <h1>All Notes</h1>
+    <a href="/notes/new">Add New Note</a>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="note : ${notes}">
+            <td th:text="${note.title}"></td>
+            <td th:text="${note.content}"></td>
+            <td>
+                <a th:href="@{/notes/edit/{id}(id=${note.id})}">Edit</a> |
+                <a th:href="@{/notes/delete/{id}(id=${note.id})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
