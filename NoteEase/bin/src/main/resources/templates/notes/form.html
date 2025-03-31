@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note Form</title>
+</head>
+<body>
+    <h1 th:text="${note.id == null ? 'Add Note' : 'Edit Note'}"></h1>
+    <form th:action="@{/notes/save}" method="post" th:object="${note}">
+        <input type="hidden" th:field="*{id}" />
+        <label>Title:</label>
+        <input type="text" th:field="*{title}" required />
+        <br>
+        <label>Content:</label>
+        <textarea th:field="*{content}" required></textarea>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
